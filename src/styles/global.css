@@ -28,7 +28,14 @@
   }
 
 }
+html{
+  scrollbar-gutter: stable;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}
 
 body {
-    font-family: var(--font-bebas-neue), sans-serif;
+    font-family: var(--font-family-mono), sans-serif;
 }

@@ -1,0 +1,33 @@
+---
+import X from "@/assets/x.svg"
+---
+<dialog id="dialog" class="modal  w-full absolute bg-secondary text-primary font-family-mono">
+    <form method="dialog" class="modal-box flex flex-col items-center p-2">
+        <div class="modal-action w-full flex justify-end">
+            <button class="btn" id="cancel">
+                <X
+                    fill="#fff"
+                    class="size-8"
+                >
+                </X>
+            </button>
+        </div>
+        <slot />
+    </form>
+</dialog>
+<script>
+    import { isOpen } from '@/store';
+    
+    const dialog = document.getElementById('dialog');
+    isOpen.subscribe((open) => {
+        if (open) {
+            dialog.showModal();
+        } else {
+            dialog.close();
+        }
+    });
+
+    document.getElementById('cancel')?.addEventListener('click', (e) =>{
+        isOpen.set(false);
+    })
+</script>
