@@ -1,12 +1,21 @@
 ---
+import { Image } from 'astro:assets';
+import { getCollection } from "astro:content";
+
 import Button from "@/components/common/Button.astro"
+import ProjectCard from '@/components/ProjectCard.astro';
+
 import ArrowUp from "@/assets/arrowUp.svg"
 import LinkedIn from "@/assets/LinkedIn.svg"
 import GitHub from "@/assets/gitHub.svg"
+import portait from "@/assets/portait.png"
+
+const projects = await getCollection("projects");
 ---
 
 <div id="container" class="my-6">
 	<main>
+		<!--Hero section -->
 		<section id="hero" class="px-4">
 			<section class="flex flex-col gap-5">
 				<h2 class="text-6xl font-family-sans">Hi, i am </br> Esteban diaz </h2>
@@ -44,8 +53,20 @@ import GitHub from "@/assets/gitHub.svg"
 						/>
 					</Button>
 				</div>
-				<div></div>
+				<div class="overflow-hidden rounded-2xl my-8">
+					<Image src={portait} alt="Portada de Esteban Diaz"/>
+				</div>
 			</section>
+		</section>	
+		<!--Projects section -->
+		<section>
+			<h2>Featured Projects</h2>
+			<p>Here are some of the selected projects that showcase my passion for front-end development.</p>
+			{projects.map(project => (
+				<ProjectCard
+					{...project.data}
+				/>
+			))}
 		</section>
 	</main>
 </div>
