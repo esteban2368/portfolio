@@ -1,0 +1,20 @@
+[
+    {
+        "id": "contact-1",
+        "name": "WhatsApp",
+        "icon": "@/assets/ws.svg",
+        "link": "https://github.com/esteban2368"
+    },
+    {
+        "id": "contact-2",
+        "name": "LinkedIn",
+        "icon": "@/assets/LinkedIn.svg",
+        "link": "https://www.linkedin.com/in/esteban-velasquez-diaz-19106277"
+    },
+    {
+        "id": "contact-3",
+        "name": "GitHub",
+        "icon": "@/assets/gitHub.svg",
+        "link": "https://github.com/esteban2368"
+    }
+]

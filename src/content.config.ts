@@ -6,9 +6,10 @@ import { z } from 'astro/zod';
 
 const projects = defineCollection({
     loader: file("./src/data/projects.json"),
-    schema: z.object({
+    schema: ({image}) => z.object({
         id: z.string(),
         title: z.string(),
+        poster: image(),
         tech: z.array(z.string()),
         role: z.string(),
         description: z.string(),
@@ -17,6 +18,16 @@ const projects = defineCollection({
         website: z.string(),
         date: z.string()
     })
+});
+
+const contact = defineCollection({
+    loader: file("./src/data/contact.json"),
+    schema: ({image}) => z.object({
+        id: z.string(),
+        name: z.string(),
+        icon: image(),
+        link: z.string()
+    })
 })
 
-export const collections = { projects }; 
+export const collections = { projects, contact }; 

@@ -8,24 +8,27 @@ import ProjectCard from '@/components/ProjectCard.astro';
 import ArrowUp from "@/assets/arrowUp.svg"
 import LinkedIn from "@/assets/LinkedIn.svg"
 import GitHub from "@/assets/gitHub.svg"
+import Ws from "@/assets/ws.svg"
 import portait from "@/assets/portait.png"
 
 const projects = await getCollection("projects");
+const contacts = await getCollection("contact");
+
 ---
 
 <div id="container" class="my-6">
-	<main>
+	<main class="divide-y divide-gray-500">
 		<!--Hero section -->
 		<section id="hero" class="px-4">
 			<section class="flex flex-col gap-5">
 				<h2 class="text-6xl font-family-sans">Hi, i am </br> Esteban diaz </h2>
-				<p>A Sydney based front-end developer passionate about building accessible and user friendly websites.</p>
+				<p>A Bogotá based front-end developer passionate about building accessible and user friendly websites.</p>
 				<div class="flex gap-4">
 					<Button
 						size="lg"
 						class="w-fit pl-3 py-3"
 					>
-					<span class="uppercase">Contact Me</span>
+					<span class="uppercase font-bold">Contact Me</span>
 					<div class="rounded-full bg-black color-white p-2">
 						<ArrowUp
 							class="text-white"
@@ -38,6 +41,7 @@ const projects = await getCollection("projects");
 						size="icon-xs"
 						variant="secondary"
 						class="w-fit p-2"
+						href="https://www.linkedin.com/in/esteban-velasquez-diaz-19106277"
 					>
 						<LinkedIn
 							fill="currentColor"
@@ -47,8 +51,19 @@ const projects = await getCollection("projects");
 						size="icon-xs"
 						variant="secondary"
 						class="w-fit p-2"
+						href="https://github.com/esteban2368"
 					>
 						<GitHub
+							fill="currentColor"
+						/>
+					</Button>
+					<Button
+						size="icon-xs"
+						variant="secondary"
+						class="w-fit p-2"
+						href="https://www.linkedin.com/in/esteban-velasquez-diaz-19106277"
+					>
+						<Ws
 							fill="currentColor"
 						/>
 					</Button>
@@ -59,14 +74,62 @@ const projects = await getCollection("projects");
 			</section>
 		</section>	
 		<!--Projects section -->
-		<section>
-			<h2>Featured Projects</h2>
+		<section class="mx-4 py-8">
+			<h2 class="font-family-sans text-5xl mb-2">Featured Projects</h2>
 			<p>Here are some of the selected projects that showcase my passion for front-end development.</p>
-			{projects.map(project => (
-				<ProjectCard
-					{...project.data}
-				/>
-			))}
+			<div class="my-14">
+				{projects.map(project => (
+					<ProjectCard
+						{...project.data}
+					/>
+				))}
+			</div>
+		</section>
+		<!--About section -->
+		<section class="mx-4 py-8" id="about">
+			<p class="mb-4">I am a front-end developer based in Bogotá, Colombia looking for exciting opportunities. Has Computer Engineering background. Likes to focus on accessibility when developing. </p>
+			<div class="flex">
+				<a href="/" target="_blank" class="flex gap-3 text-primary border-b px-0 py-2">
+					<span class="uppercase font-family-mono font-bold w-fit">More About me</span>
+				</a>
+        	</div>
+		</section>
+		<!--Contact section -->
+		<section class="mx-4 py-8" id="contact">
+			<h2 class="font-family-sans text-5xl mb-2 text-white">Let’s connect</h2>
+			<p class="mb-4">Email: <a href="mailto:Contact to Esteban Diaz" class="underline">esteban.developer1@gmail.com</a></p>
+			<div class="flex gap-6 w-fit">
+				<Button
+					size="icon-xs"
+					variant="secondary"
+					class="w-fit p-2"
+					href="https://www.linkedin.com/in/esteban-velasquez-diaz-19106277"
+				>
+					<LinkedIn
+						fill="currentColor"
+					/>
+					</Button>
+				<Button
+					size="icon-xs"
+					variant="secondary"
+					class="w-fit p-2"
+					href="https://github.com/esteban2368"
+				>
+					<GitHub
+						fill="currentColor"
+					/>
+				</Button>
+				<Button
+					size="icon-xs"
+					variant="secondary"
+					class="w-fit p-2"
+					href="https://www.linkedin.com/in/esteban-velasquez-diaz-19106277"
+				>
+					<Ws
+						fill="currentColor"
+					/>
+				</Button>
+        	</div>
 		</section>
 	</main>
 </div>

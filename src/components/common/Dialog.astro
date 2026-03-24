@@ -30,4 +30,14 @@ import X from "@/assets/x.svg"
     document.getElementById('cancel')?.addEventListener('click', (e) =>{
         isOpen.set(false);
     })
+
+
+    dialog?.addEventListener('click', (e) => {
+        const target = e.target as HTMLElement;
+
+        if (target.closest('a')) {
+            isOpen.set(false);
+            return;
+    }
+});
 </script>

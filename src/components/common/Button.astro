@@ -4,7 +4,7 @@ import type { HTMLAttributes } from "astro/types";
 import { cva, type VariantProps } from 'class-variance-authority';
 
 const buttonVariants = cva(
-  "focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 aria-invalid:border-destructive border border-transparent bg-clip-padding text-sm font-medium focus-visible:ring-3 aria-invalid:ring-3 active:translate-y-px [&_svg:not([class*='size-'])]:size-4 inline-flex gap-3 shrink-0 items-center justify-center whitespace-nowrap transition-all outline-none select-none disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 rounded-full font-mono font-bold p-1",
+  "focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 aria-invalid:border-destructive border border-transparent bg-clip-padding text-sm font-medium focus-visible:ring-3 aria-invalid:ring-3 active:translate-y-px [&_svg:not([class*='size-'])]:size-4 inline-flex gap-3 shrink-0 items-center justify-center whitespace-nowrap transition-all outline-none select-none disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 rounded-full font-mono font-bold p-1 w-10 h-10",
   {
     variants: {
       variant: {
@@ -34,26 +34,18 @@ const buttonVariants = cva(
 );
 
 export interface Props
-  extends Omit<HTMLAttributes<"button">, "disabled">,
+  extends Omit<HTMLAttributes<"a">, "disabled">,
     VariantProps<typeof buttonVariants> {};
 
-const { variant = 'default', size = 'default', type, class: cssClass, onclick } = Astro.props;
+const { variant = 'default', size = 'default', type, class: cssClass, href } = Astro.props;
 
 ---
-
-<button 
-    role="button"
+<a
+    role="link"
     class={`${buttonVariants({ variant, size, class: cssClass })} button`} 
+    href={href}
+    target="_blank"
     type={type} 
 >
     <slot />
-</button>
-
-<script>
-  const buttons = document.querySelectorAll('.button');
-  buttons.forEach(button => {
-    button.addEventListener('click', (event) => {
-      alert(`Button clicked:`);
-    });
-  });
-</script>
+</a>

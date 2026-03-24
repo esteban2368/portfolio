@@ -38,4 +38,7 @@ dialog::backdrop {
 
 body {
     font-family: var(--font-family-mono), sans-serif;
+    color: var(--color-foreground);
+    text-align: justify;
+    hyphens: auto;
 }

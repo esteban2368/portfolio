@@ -5,6 +5,7 @@
         "description": "A system for managing complaints and claims submitted by financial consumers. It enables organizations to efficiently control, track, and manage cases, ensuring full traceability and continuous monitoring from initiation to resolution.",
         "tech": ["React", "NextJS, Redux Toolkit", "API Rest", "Typescript", "Docker", "AWS"],
         "role": "Front-end Developer",
+        "poster": "@/assets/projects_fluxus.jpg",
         "client": "Financial institutions",
         "website": "https://flluxus.tech",
         "date": "2024 - 2026"
@@ -15,6 +16,7 @@
         "description": "Designed and developed a compliance management platform that helps financial institutions mitigate regulatory risks by streamlining the planning, assignment, and execution of compliance activities. The system enables role-based responsibility management, action plan tracking, automated alerts, and secure evidence storage, ensuring continuous monitoring and adherence to regulatory requirements.",
         "tech": ["Angular", "NgRx", "API Rest", "Typescript", "Docker", "AWS"],
         "role": "Front-end Developer",
+        "poster": "@/assets/project_neptuno.jpg",
         "client": "Financial institutions",
         "website": "https://neptunoregtech.com.co",
         "date": "2024 - 2026"
