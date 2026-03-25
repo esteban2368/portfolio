@@ -28,6 +28,33 @@ const contact = defineCollection({
         icon: image(),
         link: z.string()
     })
+});
+
+const jobs = defineCollection({
+    loader: file("./src/data/jobs.json"),
+    schema: z.object({
+    id: z.number().int().positive(),
+    jobTitle: z
+        .string()
+        .min(2, "Job title must have at least 2 characters")
+        .max(100),
+    company: z
+        .string()
+        .min(2, "Company name is required")
+        .max(100),
+    webSite: z
+        .string()
+        .optional(),
+    companyDescription: z
+        .string()
+        .min(10, "Company description is too short")
+        .max(500),
+    startDate: z
+        .string(),
+    endDate: z
+        .string()
+    })
+
 })
 
-export const collections = { projects, contact }; 
+export const collections = { projects, contact, jobs }; 
