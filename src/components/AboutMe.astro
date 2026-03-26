@@ -29,96 +29,111 @@ const formatDate = (dateString: string) => {
 <div id="container" class="my-6">
 	<main class="divide-y divide-gray-500">
         
-		<section id="hero" class="mx-4 py-8">
-            <h2 class="text-6xl font-medium text-white font-family-sans mb-2">About me</h2>
-            <p class="text-2xl/9 text-white text-left mb-4">I am a front-end developer based in Bogotá. Has Computer Engineering background. </p>
-            <p class="text-base/7 text-left mb-4">I am a front-end developer based in Sydney looking for exciting opportunities. Has Mechanical Engineering background. Likes to focus on accessibility when developing. Passionate and curious about solving problems. Currently, I’m exploring Reactjs, Webflow and a bit of Designing. While I am not programming, I enjoy playing football, photography and playing Valorant. Learning more to improve skill</p>
-            <div class="flex gap-4">
-					<Button
-						size="lg"
-						class="w-fit pl-3 py-3"
-					>
-					<span class="uppercase font-bold">Download Resume</span>
-					<div class="rounded-full bg-black color-white p-2">
-						<DownLoad
-                            fill="#fff"
-							class="text-white"
-							width={20}
-							height={20}
-						/>
-					</div>
-					</Button>
-					<Button
-						size="icon-xs"
-						variant="secondary"
-						class="w-fit p-2"
-						href="https://www.linkedin.com/in/esteban-velasquez-diaz-19106277"
-					>
-						<LinkedIn
-							fill="currentColor"
-						/>
-					</Button>
-					<Button
-						size="icon-xs"
-						variant="secondary"
-						class="w-fit p-2"
-						href="https://github.com/esteban2368"
-					>
-						<GitHub
-							fill="currentColor"
-						/>
-					</Button>
-					<Button
-						size="icon-xs"
-						variant="secondary"
-						class="w-fit p-2"
-						href="https://www.linkedin.com/in/esteban-velasquez-diaz-19106277"
-					>
-						<Ws
-							fill="currentColor"
-						/>
-					</Button>
-				</div>
+		<section id="hero" class="mx-4 py-8 md:py-14">
+            <div class="lg:max-w-7xl md:m-auto md:gap-12 grid grid-cols-1 md:grid-cols-2">
+                <h2 class="text-6xl lg:text-7xl font-medium text-white font-family-sans mb-2">About me</h2>
+                <div>
+                    <p class="text-2xl/9 text-white text-left mb-4">I am a front-end developer based in Bogotá. Has Computer Engineering background. </p>
+                    <p class="text-base/7 text-left mb-4 lg:mb-8">I am a front-end developer based in Sydney looking for exciting opportunities. Has Mechanical Engineering background. Likes to focus on accessibility when developing. Passionate and curious about solving problems. Currently, I’m exploring Reactjs, Webflow and a bit of Designing. While I am not programming, I enjoy playing football, photography and playing Valorant. Learning more to improve skill</p>
+                    <div class="flex gap-4">
+                            <Button
+                                size="lg"
+                                class="w-fit pl-3 py-3"
+                            >
+                            <span class="uppercase font-bold">Download Resume</span>
+                            <div class="rounded-full bg-black color-white p-2">
+                                <DownLoad
+                                    fill="#fff"
+                                    class="text-white"
+                                    width={20}
+                                    height={20}
+                                />
+                            </div>
+                            </Button>
+                            <Button
+                                size="icon-xs"
+                                variant="secondary"
+                                class="w-fit p-2"
+                                href="https://www.linkedin.com/in/esteban-velasquez-diaz-19106277"
+                            >
+                                <LinkedIn
+                                    fill="currentColor"
+                                />
+                            </Button>
+                            <Button
+                                size="icon-xs"
+                                variant="secondary"
+                                class="w-fit p-2"
+                                href="https://github.com/esteban2368"
+                            >
+                                <GitHub
+                                    fill="currentColor"
+                                />
+                            </Button>
+                            <Button
+                                size="icon-xs"
+                                variant="secondary"
+                                class="w-fit p-2"
+                                href="https://www.linkedin.com/in/esteban-velasquez-diaz-19106277"
+                            >
+                                <Ws
+                                    fill="currentColor"
+                                />
+                            </Button>
+                    </div>
+                </div>
+                <div class="lg:h-20"></div>
+            </div>
         </section>
         <!--Capatibilities section -->
-		<section id="capatibilities" class="mx-4 py-8">
-            <h2 class="text-5xl font-medium text-white font-family-sans mb-2">My Capabilities</h2>
-            <p class="text-base/7 text-left mb-4">I am always looking to add more skills.Morbi egestas neque eu blandit fermentum. Nulla ac lobortis ligula. Pellentesque ac ex at purus faucibus tristique ut et dolor. </p>
-            <div class="flex flex-wrap gap-4">
-                {info &&
-                    info.map( data => (
-                        data.data.skills.map(skill => (
-                            <Badge
-                                variant="secondary"
-                            >
-                                {skill}
-                            </Badge>
-                        ))
-                    ))
-                }
+		<section id="capatibilities" class="mx-4 py-8 md:py-14">
+            <div class="lg:max-w-7xl md:m-auto md:gap-12 grid grid-cols-1 md:grid-cols-2">
+                <h2 class="text-5xl lg:text-6xl font-medium text-white font-family-sans mb-2">My Capabilities</h2>
+                <div>
+                    <p class="text-base/7 text-left mb-4 lg:mb-8">I am always looking to add more skills.Morbi egestas neque eu blandit fermentum. Nulla ac lobortis ligula. Pellentesque ac ex at purus faucibus tristique ut et dolor. </p>
+                    <div class="flex flex-wrap gap-4">
+                        {info &&
+                            info.map( data => (
+                                data.data.skills.map(skill => (
+                                    <Badge
+                                        variant="secondary"
+                                    >
+                                        {skill}
+                                    </Badge>
+                                ))
+                            ))
+                        }
+                    </div>
+                </div>
             </div>
         </section>
         <!--Experience section -->
-		<section id="experience" class="mx-4 py-8">
-            <h2 class="text-5xl font-medium text-white font-family-sans mb-4">My Experience</h2>
-            <div class="flex flex-col gap-12">
-                {jobs && 
-                    jobs.map((job) =>(
-                        <div class="flex flex-col gap-4">
-                            <div>
-                                <h3 class="text-white text-lg mb-2">{job.data.jobTitle}</h3>
-                                <p class="mb-1">{job.data.webSite ? 
-                                    <a href={job.data.webSite} target="_blank" class="text-primary underline font-bold">{job.data.company}</a>
-                                    : 
-                                    job.data.company}
-                                </p>
-                                <p>{`${formatDate(job.data.startDate)} • ${formatDate(job.data.endDate)}`}</p>
-                            </div>
-                            <p class="text-base/7">{job.data.companyDescription}</p>
-                        </div>
-                    ))
-                }
-			</div>
+		<section id="experience" class="mx-4 py-8 lg:py-12">
+            <div class="lg:max-w-7xl md:m-auto md:gap-12 grid grid-cols-1 md:grid-cols-2">
+                <h2 class="text-5xl lg:text-6xl font-medium text-white font-family-sans mb-4">My Experience</h2>
+                <div>
+                    <div class="flex flex-col gap-12 lg:gap-20">
+                        {jobs && 
+                            jobs.map((job) =>(
+                                <div class="flex flex-col gap-4">
+                                    <div>
+                                        <div class="lg:flex lg:justify-between ">
+                                            <h3 class="text-white text-lg mb-2">{job.data.jobTitle}</h3>
+                                            <p>{`${formatDate(job.data.startDate)} • ${formatDate(job.data.endDate)}`}</p>
+                                        </div>
+                                        <p class="mb-1">{job.data.webSite ? 
+                                            <a href={job.data.webSite} target="_blank" class="text-primary underline font-bold">{job.data.company}</a>
+                                            : 
+                                            job.data.company}
+                                        </p>
+                                    </div>
+                                    <p class="text-base/7">{job.data.companyDescription}</p>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div>
+            </div>
         </section>
         <!--Contact section -->
         <Contact/>
