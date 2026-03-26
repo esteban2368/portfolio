@@ -1,6 +1,6 @@
 import { defineCollection } from "astro:content";
 
-import { file } from "astro/loaders";
+import { glob, file } from "astro/loaders";
 
 import { z } from 'astro/zod';
 
@@ -57,4 +57,12 @@ const jobs = defineCollection({
 
 })
 
-export const collections = { projects, contact, jobs }; 
+const info = defineCollection({
+    loader: glob({ base: './src/content/info', pattern: '**/*.{md,mdx}' }),
+    schema: z.object({
+        title: z.string(),
+        skills: z.array(z.string())
+    })
+})
+
+export const collections = { projects, contact, jobs, info }; 

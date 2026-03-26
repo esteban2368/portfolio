@@ -1,5 +1,7 @@
 ---
 import Button from "@/components/common/Button.astro"
+import Badge from "@/components/common/Badge.astro"
+import Contact from '@/components/Contact.astro';
 
 import LinkedIn from "@/assets/LinkedIn.svg"
 import GitHub from "@/assets/gitHub.svg"
@@ -9,6 +11,18 @@ import DownLoad from "@/assets/DownLoad.svg"
 import { getCollection } from "astro:content"
 
 const jobs = await getCollection("jobs");
+const info = await getCollection("info");
+
+const formatDate = (dateString: string) => {
+  const date = new Date(dateString);
+
+  const formatted = new Intl.DateTimeFormat("en", {
+    month: "short",
+    year: "numeric",
+  }).format(date);
+
+  return formatted
+};
 ---
 
 <!--About page -->
@@ -70,6 +84,19 @@ const jobs = await getCollection("jobs");
 		<section id="capatibilities" class="mx-4 py-8">
             <h2 class="text-5xl font-medium text-white font-family-sans mb-2">My Capabilities</h2>
             <p class="text-base/7 text-left mb-4">I am always looking to add more skills.Morbi egestas neque eu blandit fermentum. Nulla ac lobortis ligula. Pellentesque ac ex at purus faucibus tristique ut et dolor. </p>
+            <div class="flex flex-wrap gap-4">
+                {info &&
+                    info.map( data => (
+                        data.data.skills.map(skill => (
+                            <Badge
+                                variant="secondary"
+                            >
+                                {skill}
+                            </Badge>
+                        ))
+                    ))
+                }
+            </div>
         </section>
         <!--Experience section -->
 		<section id="experience" class="mx-4 py-8">
@@ -85,7 +112,7 @@ const jobs = await getCollection("jobs");
                                     : 
                                     job.data.company}
                                 </p>
-                                <p>{`${job.data.startDate} - ${job.data.endDate}`}</p>
+                                <p>{`${formatDate(job.data.startDate)} • ${formatDate(job.data.endDate)}`}</p>
                             </div>
                             <p class="text-base/7">{job.data.companyDescription}</p>
                         </div>
@@ -93,5 +120,7 @@ const jobs = await getCollection("jobs");
                 }
 			</div>
         </section>
+        <!--Contact section -->
+        <Contact/>
     </main>
 </div>

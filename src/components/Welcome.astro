@@ -4,15 +4,15 @@ import { getCollection } from "astro:content";
 
 import Button from "@/components/common/Button.astro"
 import ProjectCard from '@/components/ProjectCard.astro';
+import Contact from '@/components/Contact.astro';
 
 import ArrowUp from "@/assets/arrowUp.svg"
 import LinkedIn from "@/assets/LinkedIn.svg"
 import GitHub from "@/assets/gitHub.svg"
 import Ws from "@/assets/ws.svg"
-import portait from "@/assets/portait.png"
+import portait from "@/assets/portait.jpg"
 
 const projects = await getCollection("projects");
-const contacts = await getCollection("contact");
 
 ---
 
@@ -20,116 +20,92 @@ const contacts = await getCollection("contact");
 	<main class="divide-y divide-gray-500">
 		<!--Hero section -->
 		<section id="hero" class="px-4">
-			<section class="flex flex-col gap-5">
-				<h2 class="text-6xl font-family-sans">Hi, i am </br> Esteban diaz </h2>
-				<p>A Bogotá based front-end developer passionate about building accessible and user friendly websites.</p>
-				<div class="flex gap-4">
-					<Button
-						size="lg"
-						class="w-fit pl-3 py-3"
-					>
-					<span class="uppercase font-bold">Contact Me</span>
-					<div class="rounded-full bg-black color-white p-2">
-						<ArrowUp
-							class="text-white"
-							width={20}
-							height={20}
-						/>
+			<section class="lg:max-w-7xl md:m-auto gap-5 md:gap-12 grid grid-cols-1 md:grid-cols-2 md:items-center mb-16 last:mb-0">
+				<div class="flex flex-col gap-4">
+					<h2 class="text-6xl font-family-sans text-white">Hi, i am </br> Esteban diaz </h2>
+					<p class="md:mb-5">A Bogotá based front-end developer passionate about building accessible and user friendly websites.</p>
+					<div class="flex gap-4">
+						<Button
+							size="lg"
+							class="w-fit pl-3 py-3"
+						>
+						<span class="uppercase font-bold">Contact Me</span>
+						<div class="rounded-full bg-black color-white p-2">
+							<ArrowUp
+								class="text-white"
+								width={20}
+								height={20}
+							/>
+						</div>
+						</Button>
+						<Button
+							size="icon-xs"
+							variant="secondary"
+							class="w-fit p-2"
+							href="https://www.linkedin.com/in/esteban-velasquez-diaz-19106277"
+						>
+							<LinkedIn
+								fill="currentColor"
+							/>
+						</Button>
+						<Button
+							size="icon-xs"
+							variant="secondary"
+							class="w-fit p-2"
+							href="https://github.com/esteban2368"
+						>
+							<GitHub
+								fill="currentColor"
+							/>
+						</Button>
+						<Button
+							size="icon-xs"
+							variant="secondary"
+							class="w-fit p-2"
+							href="https://www.linkedin.com/in/esteban-velasquez-diaz-19106277"
+						>
+							<Ws
+								fill="currentColor"
+							/>
+						</Button>
 					</div>
-					</Button>
-					<Button
-						size="icon-xs"
-						variant="secondary"
-						class="w-fit p-2"
-						href="https://www.linkedin.com/in/esteban-velasquez-diaz-19106277"
-					>
-						<LinkedIn
-							fill="currentColor"
-						/>
-					</Button>
-					<Button
-						size="icon-xs"
-						variant="secondary"
-						class="w-fit p-2"
-						href="https://github.com/esteban2368"
-					>
-						<GitHub
-							fill="currentColor"
-						/>
-					</Button>
-					<Button
-						size="icon-xs"
-						variant="secondary"
-						class="w-fit p-2"
-						href="https://www.linkedin.com/in/esteban-velasquez-diaz-19106277"
-					>
-						<Ws
-							fill="currentColor"
-						/>
-					</Button>
 				</div>
 				<div class="overflow-hidden rounded-2xl my-8">
-					<Image src={portait} alt="Portada de Esteban Diaz"/>
+					<Image src={portait} alt="Portada de Esteban Diaz" layout='constrained'/>
 				</div>
 			</section>
 		</section>	
 		<!--Projects section -->
-		<section class="mx-4 py-8">
-			<h2 class="font-family-sans text-5xl mb-2">Featured Projects</h2>
-			<p>Here are some of the selected projects that showcase my passion for front-end development.</p>
-			<div class="my-14">
-				{projects.map(project => (
-					<ProjectCard
-						{...project.data}
-					/>
-				))}
+		<section class="mx-4 py-8 md:py-14">
+			<div class="lg:max-w-7xl lg:m-auto">
+				<h2 class="font-family-sans text-white text-5xl mb-2">Featured Projects</h2>
+				<p>Here are some of the selected projects that showcase my passion for front-end development.</p>
+				<div class="my-14">
+					{projects.map(project => (
+						<ProjectCard
+							{...project.data}
+						/>
+					))}
+				</div>
 			</div>
 		</section>
 		<!--About section -->
-		<section class="mx-4 py-8" id="about">
-			<p class="mb-4">I am a front-end developer based in Bogotá, Colombia looking for exciting opportunities. Has Computer Engineering background. Likes to focus on accessibility when developing. </p>
-			<div class="flex">
-				<a href="/about" class="flex gap-3 text-primary border-b px-0 py-2">
-					<span class="uppercase font-family-mono font-bold w-fit">More About me</span>
-				</a>
-        	</div>
+		<section class="mx-4 py-8 md:py-14" id="about">
+			<div class="lg:max-w-7xl lg:m-auto grid grid-cols-1 lg:grid-cols-2">
+				<h3 class="hidden lg:block text-7xl text-white font-family-sans uppercase">About me</h3>
+				<div>
+					<p class="hidden lg:block text-3xl font-medium text-white text-left mb-4">I am a front-end developer based in Bogotá. Has Computer Engineering background. </p>
+					<p class="mb-4 lg:mb-8">I am a front-end developer based in Bogotá, Colombia looking for exciting opportunities. Has Computer Engineering background. Likes to focus on accessibility when developing. </p>
+					<div class="flex">
+						<a href="/about" class="flex gap-3 text-primary border-b px-0 py-2">
+							<span class="uppercase font-family-mono font-bold w-fit">More About me</span>
+						</a>
+					</div>
+				</div>
+				<div class="lg:h-55"></div>
+			</div>
 		</section>
 		<!--Contact section -->
-		<section class="mx-4 py-8" id="contact">
-			<h2 class="font-family-sans text-5xl mb-2 text-white">Let’s connect</h2>
-			<p class="mb-4">Email: <a href="mailto:Contact to Esteban Diaz" class="underline">esteban.developer1@gmail.com</a></p>
-			<div class="flex gap-6 w-fit">
-				<Button
-					size="icon-xs"
-					variant="secondary"
-					class="w-fit p-2"
-					href="https://www.linkedin.com/in/esteban-velasquez-diaz-19106277"
-				>
-					<LinkedIn
-						fill="currentColor"
-					/>
-					</Button>
-				<Button
-					size="icon-xs"
-					variant="secondary"
-					class="w-fit p-2"
-					href="https://github.com/esteban2368"
-				>
-					<GitHub
-						fill="currentColor"
-					/>
-				</Button>
-				<Button
-					size="icon-xs"
-					variant="secondary"
-					class="w-fit p-2"
-					href="https://www.linkedin.com/in/esteban-velasquez-diaz-19106277"
-				>
-					<Ws
-						fill="currentColor"
-					/>
-				</Button>
-        	</div>
-		</section>
+		<Contact/>
 	</main>
 </div>

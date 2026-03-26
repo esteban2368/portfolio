@@ -1,0 +1,70 @@
+---
+import Button from "@/components/common/Button.astro";
+
+import LinkedIn from "@/assets/LinkedIn.svg"
+import GitHub from "@/assets/gitHub.svg"
+import Ws from "@/assets/ws.svg"
+---
+<!--Contact section -->
+<section class="mx-4 py-8 md:py-14" id="contact">
+    <div class="lg:max-w-7xl lg:m-auto grid grid-cols-1 lg:grid-cols-2">
+        <div>
+            <h2 class="font-family-sans text-5xl mb-2 text-white">Let’s connect</h2>
+            <p class="mb-4">Email: <a href="mailto:Contact to Esteban Diaz" class="underline">esteban.developer1@gmail.com</a></p>
+            <div class="flex gap-6 w-fit">
+                <Button
+                    size="icon-xs"
+                    variant="secondary"
+                    class="w-fit p-2"
+                    href="https://www.linkedin.com/in/esteban-velasquez-diaz-19106277"
+                >
+                    <LinkedIn
+                        fill="currentColor"
+                    />
+                    </Button>
+                <Button
+                    size="icon-xs"
+                    variant="secondary"
+                    class="w-fit p-2"
+                    href="https://github.com/esteban2368"
+                >
+                    <GitHub
+                        fill="currentColor"
+                    />
+                </Button>
+            </div>
+        </div>
+        <div class="flex flex-col justify-center h-full gap-4 max-w-md">
+            <h3 class="text-2xl md:text-3xl font-family-sans ">
+                Have a project in mind?
+            </h3>
+
+            <p>
+                I build modern interfaces and scalable solutions with React and Next.js.
+                Let’s talk and make it happen.
+            </p>
+
+            <div class="flex gap-3 mt-2">
+                <!-- WhatsApp (primary) -->
+                 <Button
+                    size="lg"
+                    class="w-fit pl-3 py-3"
+				>
+                    <span class="uppercase font-bold">WhatsApp</span>
+                    <div class="rounded-full bg-black color-white p-2">
+                        <Ws
+                            class="text-white"
+                            fill="#fff  "
+                            width={20}
+                            height={20}
+                        />
+                    </div>
+				</Button>
+            </div>
+
+            <span class="text-xs">
+                🟢 Available for freelance projects
+            </span>
+            </div>
+        </div>
+</section>

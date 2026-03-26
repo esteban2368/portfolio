@@ -11,9 +11,10 @@ type Props = Project;
 
 const Project = Astro.props
 ---
-<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 last:mb-0">
-    <div class="rounded-lg px-5 py-10 bg-secondary">
+<div class="grid grid-cols-1 md:grid-cols-2 md:items-center gap-8 mb-16 md:mb-30 last:mb-0">
+    <div class="rounded-lg px-5 md:px-8 py-10 md:py-25 align-middle bg-secondary">
         <Image
+            class="rounded-lg"
             src={Project.poster}
             alt={Project.title}
         />
