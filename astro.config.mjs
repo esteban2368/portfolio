@@ -5,6 +5,8 @@ import tailwindcss from '@tailwindcss/vite';
 
 import alpinejs from '@astrojs/alpinejs';
 
+import sitemap from '@astrojs/sitemap';
+
 // https://astro.build/config
 export default defineConfig({
   vite: {
@@ -26,6 +28,6 @@ export default defineConfig({
       weights: [400,500,600,700]
     }
 ],
-
-  integrations: [alpinejs()]
+  site: 'https://portfolio-mauve-delta-20.vercel.app',
+  integrations: [alpinejs(), sitemap()]
 });
