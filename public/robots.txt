@@ -1,4 +1,33 @@
 # Example: Permitir a todos los bots de búsqueda escanear e indexar el sitio web.
 # Full syntax: https://developers.google.com/search/docs/advanced/robots/create-robots-txt
+
+# Robots.txt para Esteban Dev
+
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.json$
+Allow: /sitemap.xml
+Allow: /feed.xml
+
+# Google specific
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Bing specific
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Otros bots
+User-agent: *
+Crawl-delay: 1
+
+# Sitemap
+Sitemap: https://estebandevs.tech/sitemap.xml
+
+# CDN allowed
+User-agent: *
+Allow: /public/

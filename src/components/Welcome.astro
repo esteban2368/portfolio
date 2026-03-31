@@ -19,64 +19,72 @@ const projects = await getCollection("projects");
 <div id="container" class="my-6">
 	<main class="divide-y divide-gray-500">
 		<!--Hero section -->
-		<section id="hero" class="px-4">
-			<section class="lg:max-w-7xl md:m-auto gap-5 md:gap-12 grid grid-cols-1 md:grid-cols-2 md:items-center mb-16 last:mb-0">
-				<div class="flex flex-col gap-4">
-					<h2 class="text-6xl font-family-sans text-white">Hi, i am </br> Esteban diaz </h2>
-					<p class="md:mb-5">A Bogotá based front-end developer passionate about building accessible and user friendly websites.</p>
-					<div class="flex gap-4">
-						<Button
-							size="lg"
-							class="w-fit pl-3 py-3"
-						>
-						<span class="uppercase font-bold">Contact Me</span>
-						<div class="rounded-full bg-black color-white p-2">
-							<ArrowUp
-								class="text-white"
-								width={20}
-								height={20}
-							/>
+		<header>
+			<section id="hero" class="px-4">
+				<div class="lg:max-w-7xl md:m-auto gap-5 md:gap-12 grid grid-cols-1 md:grid-cols-2 md:items-center mb-16 last:mb-0">
+					<div class="flex flex-col gap-4">
+						<h1 class="visually-hidden">Esteban Diaz - Frontend Developer</h1>
+						<p class="text-6xl font-family-sans text-white">Hi, i am </br> Esteban diaz </p>
+						<p class="md:mb-5">A Bogotá based front-end developer passionate about building accessible and user friendly websites.</p>
+						<div class="flex gap-4">
+							<Button
+								size="lg"
+								class="w-fit pl-3 py-3"
+							>
+							<span class="uppercase font-bold">Contact Me</span>
+							<div class="rounded-full bg-black color-white p-2">
+								<ArrowUp
+									class="text-white"
+									width={20}
+									height={20}
+								/>
+							</div>
+							</Button>
+							<Button
+								size="icon-xs"
+								variant="secondary"
+								class="w-fit p-2"
+								rel="noopener noreferrer"
+								aria-label="Follow Esteban Diaz on LinkedIn"
+								href="https://www.linkedin.com/in/esteban-velasquez-diaz-19106277"
+							>
+								<LinkedIn
+									fill="currentColor"
+								/>
+							</Button>
+							<Button
+								size="icon-xs"
+								variant="secondary"
+								class="w-fit p-2"
+								rel="noopener noreferrer"
+								aria-label="Follow Esteban Diaz on GitHub"
+								href="https://github.com/esteban2368"
+							>
+								<GitHub
+									fill="currentColor"
+								/>
+							</Button>
+							<Button
+								size="icon-xs"
+								variant="secondary"
+								class="w-fit p-2"
+								href="https://wa.me/573209249866"
+							>
+								<Ws
+									fill="currentColor"
+								/>
+							</Button>
 						</div>
-						</Button>
-						<Button
-							size="icon-xs"
-							variant="secondary"
-							class="w-fit p-2"
-							href="https://www.linkedin.com/in/esteban-velasquez-diaz-19106277"
-						>
-							<LinkedIn
-								fill="currentColor"
-							/>
-						</Button>
-						<Button
-							size="icon-xs"
-							variant="secondary"
-							class="w-fit p-2"
-							href="https://github.com/esteban2368"
-						>
-							<GitHub
-								fill="currentColor"
-							/>
-						</Button>
-						<Button
-							size="icon-xs"
-							variant="secondary"
-							class="w-fit p-2"
-							href="https://wa.me/573209249866"
-						>
-							<Ws
-								fill="currentColor"
-							/>
-						</Button>
+					</div>
+					<div class="overflow-hidden rounded-2xl my-8">
+						<Image src={portait} alt="Portada de Esteban Diaz" layout='constrained'/>
 					</div>
 				</div>
-				<div class="overflow-hidden rounded-2xl my-8">
-					<Image src={portait} alt="Portada de Esteban Diaz" layout='constrained'/>
-				</div>
-			</section>
-		</section>	
+			</section>	
+		</header>
 		<!--Projects section -->
-		<section class="mx-4 py-8 md:py-14">
+
+		<section class="mx-4 py-8 md:py-14" id="projects">
 			<div class="lg:max-w-7xl lg:m-auto">
 				<h2 class="font-family-sans text-white text-5xl mb-2">Featured Projects</h2>
 				<p>Here are some of the selected projects that showcase my passion for front-end development.</p>

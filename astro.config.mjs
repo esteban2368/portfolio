@@ -9,8 +9,23 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://estebandevs.tech',
+  integrations: [alpinejs(), sitemap({
+      changefreq: 'weekly',
+      priority: 0.7,
+      lastmod: new Date(),
+    })],
+
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
+    build: {
+      minify: 'terser',
+      cssCodeSplit: true,
+    }
+  },
+
+  build: {
+    format: 'file',
   },
 
   fonts: [
@@ -27,7 +42,5 @@ export default defineConfig({
       subsets: ['latin'],
       weights: [400,500,600,700]
     }
-],
-  site: 'https://portfolio-mauve-delta-20.vercel.app',
-  integrations: [alpinejs(), sitemap()]
+  ],
 });

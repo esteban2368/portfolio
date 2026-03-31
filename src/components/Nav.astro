@@ -5,17 +5,20 @@ import Dialog from './common/Dialog.astro';
 ---
 
 <div id="nav" class="flex items-center justify-between p-4">
-    <h1 class="text-3xl font-family-sans">Esteban Diaz</h1>
+    <p class="text-3xl font-family-sans">Esteban Diaz</p>
     <!--Desktop version -->
-    <ul class="menu hidden md:flex font-medium p-4 gap-6">
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Work</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
+    <nav>
+        <ul class="menu hidden md:flex font-medium p-4 gap-6">
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Work</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
     <MenuButton
         class="md:hidden"
         variant="link"
         size="icon-lg"
+        aria-label="Open navigation menu"
     >
         <Menu
             fill="currentColor"
@@ -23,9 +26,11 @@ import Dialog from './common/Dialog.astro';
     </MenuButton>
 </div>
 <Dialog>
-    <ul class="menu text-2xl p-4 flex flex-col gap-2.5">
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Work</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
+    <nav>
+        <ul class="menu text-2xl p-4 flex flex-col gap-2.5">
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Work</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 </Dialog>

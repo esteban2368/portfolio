@@ -1,0 +1,109 @@
+---
+// src/components/SEO.astro
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  url?: string;
+  type?: 'website' | 'article' | 'profile';
+  author?: string;
+  publishedDate?: string;
+}
+
+const {
+  title,
+  description,
+  image = '@/assets/profile.jpg', // Cambiar por tu imagen de perfil
+  url = Astro.url.href,
+  type = 'website',
+  author = 'Esteban Diaz',
+  publishedDate,
+} = Astro.props;
+
+const siteName = 'Esteban Dev';
+const siteUrl = 'https://estebandevs.tech';
+const fullTitle = title === 'Home' ? siteName : `${title} | ${siteName}`;
+---
+
+<!-- Meta Tags Esenciales -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content={description} />
+<meta name="theme-color" content="#000000" />
+
+<!-- SEO Keywords -->
+<meta name="keywords" content="Frontend Developer, React, TypeScript, Next.js, Financial Tech, Bogotá, Colombia" />
+
+<!-- Open Graph (para redes sociales) -->
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={new URL(image, siteUrl).href} />
+<meta property="og:url" content={url} />
+<meta property="og:site_name" content={siteName} />
+<meta property="og:type" content={type} />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={new URL(image, siteUrl).href} />
+
+<!-- Canonical -->
+<link rel="canonical" href={url} />
+
+<!-- Preconnect a recursos externos -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+<!-- JSON-LD Schema Markup -->
+{type === 'profile' && (
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Esteban',
+    jobTitle: 'Frontend Developer',
+    url: siteUrl,
+    image: new URL(image, siteUrl).href,
+    sameAs: [
+      'https://github.com/esteban2368',
+      'https://www.linkedin.com/in/esteban-velasquez-diaz-19106277',
+    ],
+    knowsAbout: ['React', 'TypeScript', 'Next.js', 'Frontend Development', 'Financial Technology', 'AWS', 'Docker'],
+  })} />
+)}
+
+{type === 'article' && publishedDate && (
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: title,
+    description: description,
+    image: new URL(image, siteUrl).href,
+    datePublished: publishedDate,
+    author: {
+      '@type': 'Person',
+      name: author,
+    },
+  })} />
+)}
+
+{type === 'website' && (
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: siteName,
+    url: siteUrl,
+    description: description,
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: `${siteUrl}/search?q={search_term_string}`,
+      'query-input': 'required name=search_term_string',
+    },
+  })} />
+)}
+
+<!-- Manifest para PWA -->
+<link rel="manifest" href="/manifest.json" />
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />

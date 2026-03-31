@@ -46,6 +46,7 @@ const { variant = 'default', size = 'default', type, class: cssClass, href } = A
     href={href}
     target="_blank"
     type={type} 
+    {...Astro.props}
 >
     <slot />
 </a>

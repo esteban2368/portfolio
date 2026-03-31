@@ -45,6 +45,7 @@ const { variant = 'default', size = 'default', type, class: cssClass } = Astro.p
     role="button"
     class={`${buttonVariants({ variant, size, class: cssClass })} buttonMenu`} 
     type={type} 
+    {...Astro.props}
 >
     <slot />
 </button>
