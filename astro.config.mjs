@@ -2,6 +2,7 @@
 import { defineConfig, fontProviders } from 'astro/config';
 
 import tailwindcss from '@tailwindcss/vite';
+import vercel from '@astrojs/vercel';
 
 import alpinejs from '@astrojs/alpinejs';
 
@@ -27,7 +28,11 @@ export default defineConfig({
   build: {
     format: 'file',
   },
-
+  adapter: vercel({
+    webAnalytics: {
+      enabled: true,
+    },
+  }),
   fonts: [
     {
       provider: fontProviders.fontsource(),
